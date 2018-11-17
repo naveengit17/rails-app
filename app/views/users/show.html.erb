@@ -1,0 +1,11 @@
+<h1> show new user</h1>
+
+<p>
+    title: <%= @user.title %> <br/>
+    Description: <%= @user.description %>
+</p>
+
+
+<%= link_to 'Edit this user' , edit_user_path %> |
+<%= link_to 'Back to user list' , users_path %> |
+<%= link_to 'Home' , root_path %>
