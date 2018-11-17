@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
     def index
         @user = User.all
-        render json: @user
+        #render json: @user
     end
     def new
         @user = User.new
