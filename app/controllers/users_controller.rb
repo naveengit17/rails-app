@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     skip_before_action :verify_authenticity_token
     def index
         @user = User.all
-        #render json: @user
+        render json: @user
     end
     def new
         @user = User.new
@@ -16,12 +16,13 @@ class UsersController < ApplicationController
             redirect_to user_path(@user)
             #render :json => { success: true, user_info: @user }
         else
-            #render :new
-            render :json => { success: false, messages: @user.errors.full_messages }
+            render :new
+            #render :json => { success: false, messages: @user.errors.full_messages }
         end
     end
 
     def show
+        #render :json => {status: true , user_info: @user}
     end
 
     def edit
@@ -42,6 +43,7 @@ class UsersController < ApplicationController
         if @user.destroy
             flash[:notice] = "user was successfully deleted"
             redirect_to users_path
+            #render :json => {status: true }
         end
 
     end
